@@ -1,4 +1,5 @@
-package br.com.desafio.dominio;
+import br.com.desafio.dominio.Curso;
+import br.com.desafio.dominio.Mentoria;
 
 import java.time.LocalDate;
 
