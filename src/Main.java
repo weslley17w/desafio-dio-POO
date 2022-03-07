@@ -1,4 +1,6 @@
+import br.com.desafio.dominio.Bootcamp;
 import br.com.desafio.dominio.Curso;
+import br.com.desafio.dominio.Dev;
 import br.com.desafio.dominio.Mentoria;
 
 import java.time.LocalDate;
@@ -16,14 +18,37 @@ public class Main {
         curso2.setDescricao("descrição");
         curso2.setCargaHoraria(4);
 
-        System.out.println(curso1);
-        System.out.println(curso2);
-
         Mentoria mentoria1 = new Mentoria();
         mentoria1.setTitulo("Mentoria Java");
         mentoria1.setDescricao("descrição");
         mentoria1.setData(LocalDate.now());
 
-        System.out.println(mentoria1);
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcamp JAVA");
+        bootcamp.setDescricao("Descrição");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria1);
+
+        Dev weslley = new Dev();
+        weslley.setNome("Weslley");
+        weslley.inscreverBootcamp(bootcamp);
+        weslley.progredir();
+        weslley.progredir();
+
+        Dev joao = new Dev();
+        joao.setNome("João");
+        joao.inscreverBootcamp(bootcamp);
+        joao.progredir();
+
+        System.out.println("Conteúdos Inscritros: ");
+        System.out.println("Weslley - " +weslley.calcularTotalXP() + ": " + weslley.getConteudosInscritos());
+        System.out.println("João - " +joao.calcularTotalXP() + ": " + joao.getConteudosInscritos());
+        System.out.println("Conteúdos Concluidos: ");
+        System.out.println("Weslley - " +weslley.calcularTotalXP() + ": " + weslley.getConteudosConcluidos());
+        System.out.println("João - " +joao.calcularTotalXP() + ": " + joao.getConteudosConcluidos());
+
+
+
     }
 }
